@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Product N Details</string>
+
+  <string name="activity_title_list">Item List</string>
+  <string name="activity_title_details">Item Details</string>
+
+  <string name="btn_text_retry">Retry</string>
+
+  //Exception messages
+  <string name="exception_message_generic">There was an application error</string>
+  <string name="exception_message_no_connection">There is no internet connection</string>
+  <string name="exception_message_not_found">Cannot retrieve data. Check your internet connection</string>
+
+  <string name="text_id">ID:</string>
+  <string name="select_a_size">Select a Size</string>
+  <string name="add_to_bag">Add To Bag</string>
+  <string name="quantity">Quantity</string>
+  <string name="icon_minus">-</string>
+  <string name="icon_plus">+</string>
+</resources>
