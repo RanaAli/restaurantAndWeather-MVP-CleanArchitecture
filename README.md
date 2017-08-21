@@ -14,15 +14,15 @@ This is to demonstrate the use of
 * Limitless Scroll
 * etc
 
-Usage of libraries such as:
+Usage of such as:
 
-//Android
+**Android**
   * androidBuildToolsVersion = "24.0.1"
   * androidMinSdkVersion = 15
   * androidTargetSdkVersion = 21
   * androidCompileSdkVersion = 21
 
-//Libraries
+**Libraries**
   * daggerVersion = '2.8'
   * butterKnifeVersion = '7.0.1'
   * recyclerViewVersion = '21.0.3'
@@ -42,7 +42,7 @@ Usage of libraries such as:
   * androidSupportVersion = '25.3.1'
   * flowLayoutVersion = '1.10@aar'
 
-//Testing
+**Testing**
   * robolectricVersion = '3.1.1'
   * jUnitVersion = '4.12'
   * assertJVersion = '1.7.1'
@@ -51,5 +51,5 @@ Usage of libraries such as:
   * espressoVersion = '2.0'
   * testingSupportLibVersion = '0.1'
 
-//Development
+**Development**
   * leakCanaryVersion = '1.3.1'
