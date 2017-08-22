@@ -35,7 +35,7 @@ Usage of such as:
   * androidAnnotationsVersion = '21.0.3'
   * arrowVersion = '1.0.0'
   * retrofitVersion = '2.3.0'
-  * retrofitCoverterVersion = '2.1.0'
+  * retrofitConverterVersion = '2.1.0'
   * interceptorVersion = '3.4.1'
   * retrofitAdapterVersion = '2.2.0'
   * glideVersion = '4.0.0'
