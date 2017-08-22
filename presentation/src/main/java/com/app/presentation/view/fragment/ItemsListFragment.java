@@ -25,7 +25,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 /**
- * Fragment that shows size_button_selected list of Items
+ * Fragment that shows list of Items
  */
 public class ItemsListFragment extends BaseFragment implements ItemsListView {
 

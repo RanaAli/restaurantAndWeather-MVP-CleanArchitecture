@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
- * MainThread (UI Thread) implementation based on size_button_selected {@link Scheduler}
+ * MainThread (UI Thread) implementation based on {@link Scheduler}
  * which will execute actions on the Android UI thread
  */
 @Singleton

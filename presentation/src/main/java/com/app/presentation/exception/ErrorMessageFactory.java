@@ -7,7 +7,7 @@ import com.app.data.exception.NotFoundException;
 import com.app.presentation.R;
 
 /**
- * Factory used to create error messages from an Exception as size_button_selected condition.
+ * Factory used to create error messages from an Exception as condition.
  */
 public class ErrorMessageFactory {
 
@@ -16,10 +16,10 @@ public class ErrorMessageFactory {
   }
 
   /**
-   * Creates size_button_selected String representing an error message.
+   * Creates String representing an error message.
    *
    * @param context Context needed to retrieve string resources.
-   * @param exception An exception used as size_button_selected condition to retrieve the correct error message.
+   * @param exception An exception used as condition to retrieve the correct error message.
    * @return {@link String} an error message.
    */
   public static String create(Context context, Exception exception) {

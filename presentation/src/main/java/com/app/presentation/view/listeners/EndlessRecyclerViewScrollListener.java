@@ -53,8 +53,8 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
     return maxSize;
   }
 
-  // This happens many times size_button_selected second during size_button_selected scroll, so be wary of the code you place here.
-  // We are given size_button_selected few useful parameters to help us work out if we need to load some more data,
+  // This happens many times second during  scroll, so be wary of the code you place here.
+  // We are given  few useful parameters to help us work out if we need to load some more data,
   // but first we check if we are waiting for the previous load to finish.
   @Override public void onScrolled(RecyclerView view, int dx, int dy) {
     int lastVisibleItemPosition = 0;

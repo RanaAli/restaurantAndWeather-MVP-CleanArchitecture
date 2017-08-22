@@ -11,7 +11,7 @@ import com.app.presentation.internal.di.components.DaggerAppComponent;
 import com.app.presentation.view.fragment.ItemDetailsFragment;
 
 /**
- * Activity that shows details of size_button_selected certain Item.
+ * Activity that shows details of certain Item.
  */
 public class ItemDetailsActivity extends BaseActivity implements HasComponent<AppComponent> {
 

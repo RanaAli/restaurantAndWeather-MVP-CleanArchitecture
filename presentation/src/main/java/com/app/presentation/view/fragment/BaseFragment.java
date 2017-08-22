@@ -10,16 +10,16 @@ import com.app.presentation.internal.di.HasComponent;
  */
 public abstract class BaseFragment extends Fragment {
   /**
-   * Shows size_button_selected {@link android.widget.Toast} message.
+   * Shows {@link android.widget.Toast} message.
    *
-   * @param message An string representing size_button_selected message to be shown.
+   * @param message An string representing message to be shown.
    */
   protected void showToastMessage(String message) {
     Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
   }
 
   /**
-   * Gets size_button_selected component for dependency injection by its type.
+   * Gets component for dependency injection by its type.
    */
   @SuppressWarnings("unchecked")
   protected <C> C getComponent(Class<C> componentType) {

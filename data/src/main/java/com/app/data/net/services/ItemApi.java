@@ -14,10 +14,11 @@ import retrofit2.http.Query;
 public interface ItemApi {
 
   String URL_SEARCH_FULL = "search/full";
+  String PRODUCT_FIND_BY_SLUG = "product/findbyslug/";
 
   @POST(URL_SEARCH_FULL) Observable<SearchEntity> searchItem(
       @Query("searchString") String searchString, @Query("page") String page,
       @Query("hits") String hits);
 
-  @GET("product/findbyslug/") Observable<ItemDetailsEntity> getItemDetails(@Query("slug") String slug);
+  @GET(PRODUCT_FIND_BY_SLUG) Observable<ItemDetailsEntity> getItemDetails(@Query("slug") String slug);
 }

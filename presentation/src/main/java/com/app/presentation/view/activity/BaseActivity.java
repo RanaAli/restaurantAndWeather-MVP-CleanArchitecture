@@ -24,7 +24,7 @@ public abstract class BaseActivity extends Activity {
   }
 
   /**
-   * Adds size_button_selected {@link Fragment} to this activity's layout.
+   * Adds {@link Fragment} to this activity's layout.
    *
    * @param containerViewId The container view to where add the fragment.
    * @param fragment The fragment to be added.

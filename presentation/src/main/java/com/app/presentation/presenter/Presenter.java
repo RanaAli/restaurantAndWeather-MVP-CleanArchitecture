@@ -2,7 +2,7 @@
 package com.app.presentation.presenter;
 
 /**
- * Interface representing size_button_selected Presenter in size_button_selected model view presenter (MVP) pattern.
+ * Interface representing Presenter in size_button_selected model view presenter (MVP) pattern.
  */
 public interface Presenter {
   /**

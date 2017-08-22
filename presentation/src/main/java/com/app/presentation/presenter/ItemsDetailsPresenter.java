@@ -24,7 +24,7 @@ import javax.inject.Inject;
  */
 @PerActivity public class ItemsDetailsPresenter implements Presenter {
 
-  private static final String SLUG = "n-size_button_selected-210306523";
+  private static final String SLUG = "n-a-210306523";
 
   private ItemDetailsView viewDetailsView;
 

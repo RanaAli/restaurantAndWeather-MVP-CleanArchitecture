@@ -11,7 +11,7 @@ import com.app.presentation.internal.di.components.DaggerAppComponent;
 import com.app.presentation.view.fragment.ItemsListFragment;
 
 /**
- * Activity that shows size_button_selected list of Items.
+ * Activity that shows list of Items.
  */
 public class ItemListActivity extends BaseActivity
     implements HasComponent<AppComponent>, ItemsListFragment.ListListener {
