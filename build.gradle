@@ -2,39 +2,46 @@ apply from: 'buildsystem/ci.gradle'
 apply from: 'buildsystem/dependencies.gradle'
 
 buildscript {
-  repositories {
-    jcenter()
-    mavenCentral()
-  }
-  dependencies {
-    classpath 'com.android.tools.build:gradle:2.3.3'
-    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
-  }
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://jitpack.io"
+        }
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.3'
+    }
 }
 
 allprojects {
-  ext {
-    androidApplicationId = 'com.app.presentation'
-    androidVersionCode = 1
-    androidVersionName = "1.0"
-    testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-    testApplicationId = 'com.app.presentation.test'
-  }
+    ext {
+        androidApplicationId = 'com.app.presentation'
+        androidVersionCode = 1
+        androidVersionName = "1.0"
+        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+        testApplicationId = 'com.app.presentation.test'
+    }
 }
 
 task runDomainUnitTests(dependsOn: [':domain:test']) {
-  description 'Run unit tests for the domain layer.'
+    description 'Run unit tests for the domain layer.'
 }
 
 task runDataUnitTests(dependsOn: [':data:cleanTestDebugUnitTest', ':data:testDebugUnitTest']) {
-  description 'Run unit tests for the data layer.'
+    description 'Run unit tests for the data layer.'
 }
 
 task runUnitTests(dependsOn: ['runDomainUnitTests', 'runDataUnitTests']) {
-  description 'Run unit tests for both domain and data layers.'
+    description 'Run unit tests for both domain and data layers.'
 }
 
 task runAcceptanceTests(dependsOn: [':presentation:connectedAndroidTest']) {
-  description 'Run application acceptance tests.'
+    description 'Run application acceptance tests.'
 }
 
+
+repositories {
+    google()
+}
