@@ -6,6 +6,7 @@ import com.app.data.repository.datasource.restaurants.RestaurantsDataStoreFactor
 import com.app.domain.model.restaurants.RestaurantsDataModel;
 import com.app.domain.repository.RestaurantsRepository;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Observable;
@@ -25,7 +26,7 @@ import io.reactivex.Observable;
      * source implementations.
      * @param restaurantEntityDataMapper {@link RestaurantEntityDataMapper}.
      */
-    public RestaurantsDataRepository(RestaurantsDataStoreFactory restaurantsDataStoreFactory,
+    @Inject public RestaurantsDataRepository(RestaurantsDataStoreFactory restaurantsDataStoreFactory,
                                      RestaurantEntityDataMapper restaurantEntityDataMapper) {
         this.restaurantsDataStoreFactory = restaurantsDataStoreFactory;
         this.resturantEntityDataMapper = restaurantEntityDataMapper;

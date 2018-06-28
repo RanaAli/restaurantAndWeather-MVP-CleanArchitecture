@@ -3,6 +3,7 @@ package com.app.presentation.internal.di.modules;
 import android.content.Context;
 import com.app.data.executor.JobExecutor;
 import com.app.data.repository.ItemsDataRepository;
+import com.app.data.repository.RestaurantsDataRepository;
 import com.app.domain.executor.PostExecutionThread;
 import com.app.domain.executor.ThreadExecutor;
 import com.app.domain.repository.ItemsRepository;
@@ -40,8 +41,8 @@ import javax.inject.Singleton;
     return itemsDataRepository;
   }
 
-  @Provides @Singleton RestaurantsRepository provideItemsRepository(
-          RestaurantsRepository restaurantsRepository) {
-    return restaurantsRepository;
+  @Provides @Singleton RestaurantsRepository provideRestaurantsRepository(
+          RestaurantsDataRepository restaurantsDataRepository) {
+    return restaurantsDataRepository;
   }
 }
