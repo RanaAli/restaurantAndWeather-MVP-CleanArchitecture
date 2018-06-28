@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RestClient {
-  public static final String BASE_URL = "https://www.mamasandpapas.ae/";
+  private static final String BASE_URL = "https://developers.zomato.com/api/v2.1/";
 
   private static Retrofit retrofit;
 
