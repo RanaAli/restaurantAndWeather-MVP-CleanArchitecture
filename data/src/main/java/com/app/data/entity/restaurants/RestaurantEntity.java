@@ -1,11 +1,11 @@
 
-package com.app.data.entity.restaurantSearch;
+package com.app.data.entity.restaurants;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RestaurantSearchEntity {
+public class RestaurantEntity {
 
     @SerializedName("results_found")
     @Expose

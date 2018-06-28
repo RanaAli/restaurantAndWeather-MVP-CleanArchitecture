@@ -1,6 +1,6 @@
 package com.app.data.repository.datasource.restaurants;
 
-import com.app.data.entity.restaurantSearch.RestaurantSearchEntity;
+import com.app.data.entity.restaurants.RestaurantEntity;
 import com.app.data.net.services.RestaurantsApi;
 import com.app.data.repository.datasource.ItemsDataStore;
 
@@ -21,8 +21,8 @@ public class CloudRestaurantDataStore implements RestaurantDataStore {
     }
 
     @Override
-    public Observable<RestaurantSearchEntity> restaurantsNearMe(String lat, String lon) {
-        return restaurantsApi.searchResturant(lat, lon)
+    public Observable<RestaurantEntity> restaurantsNearMe(String lat, String lon) {
+        return restaurantsApi.getRestaurants(lat, lon)
                 .observeOn(Schedulers.computation())
                 .subscribeOn(Schedulers.computation());
     }

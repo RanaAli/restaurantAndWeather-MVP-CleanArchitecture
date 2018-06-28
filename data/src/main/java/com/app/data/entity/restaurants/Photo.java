@@ -1,5 +1,5 @@
 
-package com.app.data.entity.restaurantSearch;
+package com.app.data.entity.restaurants;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
