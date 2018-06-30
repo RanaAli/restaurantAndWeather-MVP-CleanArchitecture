@@ -4,6 +4,7 @@ import android.content.Context;
 import com.app.domain.executor.PostExecutionThread;
 import com.app.domain.executor.ThreadExecutor;
 import com.app.domain.repository.ItemsRepository;
+import com.app.domain.repository.RestaurantsRepository;
 import com.app.presentation.internal.di.modules.ApplicationModule;
 import com.app.presentation.view.activity.BaseActivity;
 import dagger.Component;
@@ -24,4 +25,6 @@ import javax.inject.Singleton;
   PostExecutionThread postExecutionThread();
 
   ItemsRepository itemsRepository();
+
+  RestaurantsRepository RestaurantsRepository();
 }

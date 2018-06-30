@@ -3,9 +3,11 @@ package com.app.presentation.internal.di.modules;
 import android.content.Context;
 import com.app.data.executor.JobExecutor;
 import com.app.data.repository.ItemsDataRepository;
+import com.app.data.repository.RestaurantsDataRepository;
 import com.app.domain.executor.PostExecutionThread;
 import com.app.domain.executor.ThreadExecutor;
 import com.app.domain.repository.ItemsRepository;
+import com.app.domain.repository.RestaurantsRepository;
 import com.app.presentation.AndroidApplication;
 import com.app.presentation.UIThread;
 import dagger.Module;
@@ -37,5 +39,10 @@ import javax.inject.Singleton;
   @Provides @Singleton ItemsRepository provideItemsRepository(
       ItemsDataRepository itemsDataRepository) {
     return itemsDataRepository;
+  }
+
+  @Provides @Singleton RestaurantsRepository provideRestaurantsRepository(
+          RestaurantsDataRepository restaurantsDataRepository) {
+    return restaurantsDataRepository;
   }
 }

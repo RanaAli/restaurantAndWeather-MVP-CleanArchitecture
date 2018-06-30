@@ -21,7 +21,7 @@ import javax.inject.Singleton;
    * Create {@link ItemsDataStore} to retrieve data from the Cloud.
    */
   public ItemsDataStore createCloudDataStore() {
-    final ItemApi itemApi = RestClient.getService(ItemApi.class);
+    final ItemApi itemApi = RestClient.getRestaurantService(ItemApi.class);
 
     return new CloudItemsDataStore(itemApi);
   }
