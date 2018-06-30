@@ -11,7 +11,6 @@ public class RestaurantEntityDataMapper {
     }
 
     public RestaurantsDataModel map(RestaurantEntity restaurantEntity) {
-        RestaurantsDataModel dataModel = new RestaurantsDataModel();
-        return dataModel;
+        return new RestaurantsDataModel();
     }
 }

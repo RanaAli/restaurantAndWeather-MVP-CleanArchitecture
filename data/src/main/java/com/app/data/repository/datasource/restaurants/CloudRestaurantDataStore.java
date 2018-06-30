@@ -12,7 +12,7 @@ public class CloudRestaurantDataStore implements RestaurantDataStore {
     private final RestaurantsApi restaurantsApi;
 
     /**
-     * Construct a {@link ItemsDataStore} based on connections to the api (Cloud).
+     * Construct a {@link RestaurantDataStore} based on connections to the api (Cloud).
      *
      * @param restaurantsApi The {@link RestaurantsApi} implementation to use.
      */

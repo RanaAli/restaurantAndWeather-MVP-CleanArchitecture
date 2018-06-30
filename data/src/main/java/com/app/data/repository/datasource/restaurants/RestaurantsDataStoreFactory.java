@@ -22,7 +22,7 @@ import javax.inject.Singleton;
    * Create {@link RestaurantDataStore} to retrieve data from the Cloud.
    */
   public RestaurantDataStore createCloudDataStore() {
-    final RestaurantsApi restaurantsApi = RestClient.getService(RestaurantsApi.class);
+    final RestaurantsApi restaurantsApi = RestClient.getRestaurantService(RestaurantsApi.class);
 
     return new CloudRestaurantDataStore(restaurantsApi);
   }
