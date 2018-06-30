@@ -1,6 +1,6 @@
 package com.app.domain.repository;
 
-import com.app.domain.model.restaurants.RestaurantsDataModel;
+import com.app.domain.model.restaurants.RestaurantsDTO;
 
 import io.reactivex.Observable;
 
@@ -13,5 +13,5 @@ public interface RestaurantsRepository {
     /**
      * Get an {@link Observable} which will emit restaurants nearby.
      */
-    Observable<RestaurantsDataModel> restaurantsNearMe(String lat, String lon);
+    Observable<RestaurantsDTO> restaurantsNearMe(String lat, String lon);
 }

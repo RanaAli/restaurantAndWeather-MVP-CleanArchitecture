@@ -1,6 +1,6 @@
 package com.app.data.repository.datasource.weather;
 
-import com.app.data.entity.restaurants.RestaurantEntity;
+import com.app.data.entity.weather.WeatherEntity;
 import com.app.data.net.services.WeatherApi;
 
 import io.reactivex.Observable;
@@ -21,7 +21,7 @@ public class CloudWeatherDataStore implements WeatherDataStore {
     }
 
     @Override
-    public Observable<RestaurantEntity> getWeather(String lat, String lon) {
+    public Observable<WeatherEntity> getWeather(String lat, String lon) {
         return weatherApi.getWeather(WEATHER_URSER_KEY, lat + "," + lon, "true")
                 .observeOn(Schedulers.computation())
                 .subscribeOn(Schedulers.computation());

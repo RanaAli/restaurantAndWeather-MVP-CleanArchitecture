@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.app.presentation.R;
 import com.app.presentation.component.ImageHelper;
 import com.app.presentation.model.ItemDetailModel;
+import com.app.presentation.model.Restaurants.RestaurantUIModel;
 
 import java.util.Collections;
 import java.util.List;
@@ -30,7 +31,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         void onItemClicked();
     }
 
-    private List<ItemDetailModel> itemDetailModels;
+    private List<RestaurantUIModel> itemDetailModels;
     private final LayoutInflater layoutInflater;
 
     private OnItemClickListener onItemClickListener;
@@ -55,18 +56,15 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, final int position) {
-        final ItemDetailModel model = this.itemDetailModels.get(position);
-        holder.tvTitle.setText(model.getTitle());
-        holder.tvDes.setText(Html.fromHtml(model.getDescription()));
-        holder.tvPrice.setText(model.getPrice().toString());
+        final RestaurantUIModel model = this.itemDetailModels.get(position);
+        holder.tvTitle.setText(model.getName());
+        holder.tvDes.setText(Html.fromHtml(model.getLocation()));
+        holder.tvPrice.setText(model.getRating());
         ImageHelper.setImage(holder.view.getContext(), model.getImageUrl(), holder.ivImage);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ItemsAdapter.this.onItemClickListener != null) {
-                    ItemsAdapter.this.onItemClickListener.onItemClicked();
-                }
+        holder.itemView.setOnClickListener(v -> {
+            if (ItemsAdapter.this.onItemClickListener != null) {
+                ItemsAdapter.this.onItemClickListener.onItemClicked();
             }
         });
     }
@@ -76,7 +74,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         return position;
     }
 
-    public void setSearchResults(List<ItemDetailModel> itemDetailModels) {
+    public void setSearchResults(List<RestaurantUIModel> itemDetailModels) {
         this.validateCollection(itemDetailModels);
         this.itemDetailModels = itemDetailModels;
         this.notifyDataSetChanged();
@@ -86,7 +84,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         this.onItemClickListener = onItemClickListener;
     }
 
-    private void validateCollection(List<ItemDetailModel> itemDetailModels) {
+    private void validateCollection(List<RestaurantUIModel> itemDetailModels) {
         if (itemDetailModels == null) {
             throw new IllegalArgumentException("The list cannot be null");
         }

@@ -2,7 +2,7 @@ package com.app.domain.interactor;
 
 import com.app.domain.executor.PostExecutionThread;
 import com.app.domain.executor.ThreadExecutor;
-import com.app.domain.model.restaurants.RestaurantsDataModel;
+import com.app.domain.model.restaurants.RestaurantsDTO;
 import com.app.domain.repository.RestaurantsRepository;
 
 import javax.inject.Inject;
@@ -13,7 +13,7 @@ import io.reactivex.Observable;
  * This class is an implementation of {@link UseCase} that represents a use case for
  * retrieving data related to nearby restaurants.
  */
-public class GetRestaurantsNearMe extends UseCase<RestaurantsDataModel, GetRestaurantsNearMe.Params> {
+public class GetRestaurantsNearMe extends UseCase<RestaurantsDTO, GetRestaurantsNearMe.Params> {
 
     private final RestaurantsRepository restaurantsRepository;
 
@@ -26,7 +26,7 @@ public class GetRestaurantsNearMe extends UseCase<RestaurantsDataModel, GetResta
     }
 
     @Override
-    Observable<RestaurantsDataModel> buildUseCaseObservable(Params params) {
+    Observable<RestaurantsDTO> buildUseCaseObservable(Params params) {
         return restaurantsRepository.restaurantsNearMe(params.lat, params.lon);
     }
 

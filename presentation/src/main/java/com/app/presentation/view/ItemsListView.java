@@ -1,6 +1,8 @@
 package com.app.presentation.view;
 
 import com.app.presentation.model.ItemDetailModel;
+import com.app.presentation.model.Restaurants.RestaurantUIModel;
+
 import java.util.List;
 
 /**
@@ -18,5 +20,5 @@ public interface ItemsListView extends LoadDataView {
    *
    * @param itemDetailModels The object of {@link List< ItemDetailModel > } that will be shown.
    */
-  void renderItemsList(List<ItemDetailModel> itemDetailModels);
+  void renderItemsList(List<RestaurantUIModel> itemDetailModels);
 }
