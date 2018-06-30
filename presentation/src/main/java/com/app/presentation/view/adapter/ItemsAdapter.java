@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.app.presentation.R;
@@ -58,8 +59,12 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
     public void onBindViewHolder(ItemViewHolder holder, final int position) {
         final RestaurantUIModel model = this.itemDetailModels.get(position);
         holder.tvTitle.setText(model.getName());
-        holder.tvDes.setText(Html.fromHtml(model.getLocation()));
-        holder.tvPrice.setText(model.getRating());
+        holder.tvLocation.setText(Html.fromHtml(model.getLocation()));
+        holder.tvCuisine.setText(model.getCuisine());
+        holder.tvRating.setText(model.getRating());
+        holder.tvReviewNumber.setText(model.getRating());
+        holder.ratingBar.setRating(Float.parseFloat(model.getRating()));
+        holder.tvReviewNumber.setText(model.getNumberOfReviews());
         ImageHelper.setImage(holder.view.getContext(), model.getImageUrl(), holder.ivImage);
 
         holder.itemView.setOnClickListener(v -> {
@@ -97,8 +102,18 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         TextView tvTitle;
         @BindView(R.id.des)
         TextView tvDes;
-        @BindView(R.id.price)
-        TextView tvPrice;
+        @BindView(R.id.location)
+        TextView tvLocation;
+        @BindView(R.id.cuisine)
+        TextView tvCuisine;
+        @BindView(R.id.rating)
+        TextView tvRating;
+        @BindView(R.id.reviewNumber)
+        TextView tvReviewNumber;
+        @BindView(R.id.review)
+        TextView tvReview;
+        @BindView(R.id.ratingBar)
+        RatingBar ratingBar;
         @BindView(R.id.image)
         ImageView ivImage;
 

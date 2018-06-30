@@ -32,7 +32,7 @@ public class RestaurantEntityDataMapper {
             dto.setCuisine(restaurant.getCuisines());
             dto.setRating(restaurant.getUserRating().getAggregateRating());
             dto.setNumberOfReviews(restaurant.getAllReviews() == null ?
-                    "" : restaurant.getAllReviews().size() + "");
+                    "0" : restaurant.getAllReviews().size() + "");
             dto.setImageUrl(restaurant.getThumb());
 
             dataModel.add(dto);
