@@ -10,10 +10,8 @@ import com.app.domain.model.restaurants.RestaurantsDTO;
 import com.app.presentation.exception.ErrorMessageFactory;
 import com.app.presentation.internal.di.PerActivity;
 import com.app.presentation.mapper.RestaurantsDataModelMapper;
-import com.app.presentation.model.ItemDetailModel;
-import com.app.presentation.model.Restaurants.RestaurantUIModel;
-import com.app.presentation.model.Restaurants.RestaurantsUIModel;
-import com.app.presentation.model.SearchResultModel;
+import com.app.presentation.model.restaurants.RestaurantUIModel;
+import com.app.presentation.model.restaurants.RestaurantsUIModel;
 import com.app.presentation.view.ItemsListView;
 
 import java.util.ArrayList;
@@ -131,7 +129,7 @@ public class ItemsListPresenter implements Presenter {
     private final class ItemsListObserver extends DefaultObserver<RestaurantsDTO> {
         @Override
         public void onNext(RestaurantsDTO restaurantsDTO) {
-      ItemsListPresenter.this.showItemsInView(restaurantsDTO);
+            ItemsListPresenter.this.showItemsInView(restaurantsDTO);
         }
 
         @Override

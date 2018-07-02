@@ -1,4 +1,4 @@
-package com.app.presentation.model.Restaurants;
+package com.app.presentation.model.restaurants;
 
 public class RestaurantUIModel {
     private String name;

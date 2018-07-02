@@ -13,5 +13,5 @@ public interface WeatherRepository {
     /**
      * Get an {@link Observable} which will emit weather data in nearby locations.
      */
-    Observable<WeatherDataModel> weatherNearMe(String lat, String lon);
+    Observable<WeatherDataModel> weatherNearMe();
 }

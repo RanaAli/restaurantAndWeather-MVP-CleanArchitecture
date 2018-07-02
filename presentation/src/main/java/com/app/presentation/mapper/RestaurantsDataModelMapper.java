@@ -3,8 +3,8 @@ package com.app.presentation.mapper;
 import com.app.domain.model.restaurants.RestaurantDTO;
 import com.app.domain.model.restaurants.RestaurantsDTO;
 import com.app.presentation.internal.di.PerActivity;
-import com.app.presentation.model.Restaurants.RestaurantUIModel;
-import com.app.presentation.model.Restaurants.RestaurantsUIModel;
+import com.app.presentation.model.restaurants.RestaurantUIModel;
+import com.app.presentation.model.restaurants.RestaurantsUIModel;
 
 import java.util.ArrayList;
 

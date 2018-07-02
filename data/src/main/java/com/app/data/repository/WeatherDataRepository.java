@@ -30,8 +30,8 @@ public class WeatherDataRepository implements WeatherRepository {
     }
 
     @Override
-    public Observable<WeatherDataModel> weatherNearMe(String lat, String lon) {
+    public Observable<WeatherDataModel> weatherNearMe() {
         WeatherDataStore cloudDataStore = weatherDataStoreFactory.createCloudDataStore();
-        return cloudDataStore.getWeather(lat, lon).map(weatherEntityDataMapper::map);
+        return cloudDataStore.getWeather().map(weatherEntityDataMapper::map);
     }
 }

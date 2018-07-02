@@ -4,11 +4,11 @@ package com.app.data.entity.weather;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Metric {
+public class Minimum {
 
     @SerializedName("Value")
     @Expose
-    private Integer value;
+    private Double value;
     @SerializedName("Unit")
     @Expose
     private String unit;
@@ -16,11 +16,11 @@ public class Metric {
     @Expose
     private Integer unitType;
 
-    public Integer getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 

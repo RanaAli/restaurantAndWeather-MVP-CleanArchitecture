@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestClient {
     private static final String BASE_URL_RESTAURANTS = "https://developers.zomato.com/api/v2.1/";
-    private static final String BASE_URL_WEATHER = "http://dataservice.accuweather.com/locations/v1/cities/geoposition/";
+    private static final String BASE_URL_WEATHER = "http://dataservice.accuweather.com/forecasts/v1/daily/";
 
     private static Retrofit retrofitRestaurant;
     private static Retrofit retrofitWeather;

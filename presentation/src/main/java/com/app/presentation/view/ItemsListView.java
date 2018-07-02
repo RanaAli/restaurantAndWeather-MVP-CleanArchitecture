@@ -1,7 +1,7 @@
 package com.app.presentation.view;
 
 import com.app.presentation.model.ItemDetailModel;
-import com.app.presentation.model.Restaurants.RestaurantUIModel;
+import com.app.presentation.model.restaurants.RestaurantUIModel;
 
 import java.util.List;
 

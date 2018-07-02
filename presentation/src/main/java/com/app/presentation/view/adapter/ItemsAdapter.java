@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.app.presentation.R;
 import com.app.presentation.component.ImageHelper;
 import com.app.presentation.model.ItemDetailModel;
-import com.app.presentation.model.Restaurants.RestaurantUIModel;
+import com.app.presentation.model.restaurants.RestaurantUIModel;
 
 import java.util.Collections;
 import java.util.List;

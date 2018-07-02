@@ -1,4 +1,4 @@
-package com.app.presentation.model.Restaurants;
+package com.app.presentation.model.restaurants;
 
 import java.util.ArrayList;
 

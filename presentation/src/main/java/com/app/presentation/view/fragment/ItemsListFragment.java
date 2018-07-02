@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.app.presentation.R;
 import com.app.presentation.internal.di.components.AppComponent;
-import com.app.presentation.model.Restaurants.RestaurantUIModel;
+import com.app.presentation.model.restaurants.RestaurantUIModel;
 import com.app.presentation.presenter.ItemsListPresenter;
 import com.app.presentation.view.ItemsListView;
 import com.app.presentation.view.adapter.ItemsAdapter;

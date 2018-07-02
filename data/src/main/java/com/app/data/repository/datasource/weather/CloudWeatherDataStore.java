@@ -21,8 +21,8 @@ public class CloudWeatherDataStore implements WeatherDataStore {
     }
 
     @Override
-    public Observable<WeatherEntity> getWeather(String lat, String lon) {
-        return weatherApi.getWeather(WEATHER_URSER_KEY, lat + "," + lon, "true")
+    public Observable<WeatherEntity> getWeather() {
+        return weatherApi.getWeather("323053", WEATHER_URSER_KEY, true)
                 .observeOn(Schedulers.computation())
                 .subscribeOn(Schedulers.computation());
     }

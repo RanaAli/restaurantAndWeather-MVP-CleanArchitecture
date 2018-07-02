@@ -27,21 +27,9 @@ public class GetWeatherNearMe extends UseCase<WeatherDataModel, GetWeatherNearMe
 
     @Override
     Observable<WeatherDataModel> buildUseCaseObservable(Params params) {
-        return weatherRepository.weatherNearMe(params.lat, params.lon);
+        return weatherRepository.weatherNearMe();
     }
 
     public static final class Params {
-
-        private final String lat;
-        private final String lon;
-
-        public Params(String lat, String lon) {
-            this.lat = lat;
-            this.lon = lon;
-        }
-
-        public static GetRestaurantsNearMe.Params forLocation(String lat, String lon) {
-            return new GetRestaurantsNearMe.Params(lat, lon);
-        }
     }
 }
