@@ -26,14 +26,16 @@ public class RestaurantEntityDataMapper {
 
             Restaurant restaurant = dummyRestaurant.getRestaurant();
 
-            dto.setName(restaurant.getName());
-            dto.setLocation(restaurant.getLocation() == null ?
-                    "" : restaurant.getLocation().getCity());
-            dto.setCuisine(restaurant.getCuisines());
-            dto.setRating(restaurant.getUserRating().getAggregateRating());
-            dto.setNumberOfReviews(restaurant.getAllReviews() == null ?
-                    "0" : restaurant.getAllReviews().size() + "");
-            dto.setImageUrl(restaurant.getThumb());
+            if (restaurant != null) {
+                dto.setName(restaurant.getName());
+                dto.setLocation(restaurant.getLocation() == null ?
+                        "" : restaurant.getLocation().getCity());
+                dto.setCuisine(restaurant.getCuisines());
+                dto.setRating(restaurant.getUserRating().getAggregateRating());
+                dto.setNumberOfReviews(restaurant.getAllReviews() == null ?
+                        "0" : restaurant.getAllReviews().size() + "");
+                dto.setImageUrl(restaurant.getThumb());
+            }
 
             dataModel.add(dto);
         }

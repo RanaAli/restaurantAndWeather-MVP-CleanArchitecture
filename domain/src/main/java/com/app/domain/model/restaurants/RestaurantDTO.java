@@ -1,12 +1,12 @@
 package com.app.domain.model.restaurants;
 
 public class RestaurantDTO {
-    private String name;
-    private String location;
-    private String cuisine;
-    private String rating;
-    private String numberOfReviews;
-    private String imageUrl;
+    private String name = "";
+    private String location = "";
+    private String cuisine = "";
+    private String rating = "";
+    private String numberOfReviews = "";
+    private String imageUrl = "";
 
     public String getName() {
         return name;

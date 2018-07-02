@@ -5,200 +5,176 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/layout_margin"
     android:orientation="vertical"
-    tools:ignore="RtlHardcoded"
-    >
+    tools:ignore="RtlHardcoded">
 
-  <ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:fillViewport="true"
-      >
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="32"
-        >
-
-      <android.support.v4.view.ViewPager
-          android:id="@+id/imageViewPager"
-          android:layout_width="match_parent"
-          android:layout_height="0dp"
-          android:layout_marginBottom="@dimen/layout_margin"
-          android:layout_weight="17"
-          />
-
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="0dp"
-          android:layout_weight="15"
-          android:background="@android:color/white"
-          android:orientation="vertical"
-          android:padding="@dimen/row_padding"
-          >
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_4dp"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/detail_title_test_size"
-            android:textStyle="bold"
-            tools:text="title"
-            />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-          <LinearLayout
-              android:id="@+id/price_ll"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              >
-
-            <TextView
-                android:id="@+id/tv_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/detail_price_text_color"
-                android:textSize="@dimen/detail_price_text_size"
-                android:textStyle="bold"
-                tools:text="price"
-                />
-
-            <TextView
-                android:id="@+id/tv_oldPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_4dp"
-                android:ellipsize="end"
-                android:textColor="@color/item_details_grey"
-                android:textSize="@dimen/detail_old_price_text_size"
-                tools:text="old price"
-                />
-
-          </LinearLayout>
-
-          <LinearLayout
-              android:id="@+id/id_ll"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_alignBottom="@id/price_ll"
-              android:layout_alignParentRight="true"
-              android:layout_alignTop="@id/price_ll"
-              android:gravity="bottom"
-              android:orientation="horizontal"
-              android:paddingBottom="@dimen/padding_2dp"
-              >
-
-            <TextView
-                android:id="@+id/tv_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:text="@string/text_id"
-                android:textColor="@color/item_details_grey"
-                android:textSize="@dimen/item_details_text_10"
-                />
-
-            <TextView
-                android:id="@+id/tv_idValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_4dp"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:textColor="@color/item_details_grey"
-                android:textSize="@dimen/item_details_text_10"
-                tools:text="id Value"
-                />
-
-          </LinearLayout>
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/separator_height"
-            android:layout_marginBottom="@dimen/layout_margin"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:background="@color/separator_color"
-            />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            >
+            android:weightSum="32">
 
-          <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginBottom="@dimen/layout_margin"
-              android:text="@string/select_a_size"
-              android:textAllCaps="true"
-              android:textColor="@color/item_details_grey"
-              android:textSize="@dimen/item_details_text_10"
-              android:textStyle="bold"
-              />
+            <android.support.v4.view.ViewPager
+                android:id="@+id/imageViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/layout_margin"
+                android:layout_weight="17" />
 
-          <com.app.presentation.view.custom.FlowRadioGroup
-              android:id="@+id/rg_layout"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginBottom="@dimen/layout_margin"
-              android:orientation="horizontal"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="15"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/row_padding">
 
-              />
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_4dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/detail_title_test_size"
+                    android:textStyle="bold"
+                    tools:text="title" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/price_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/detail_price_text_color"
+                            android:textSize="@dimen/detail_price_text_size"
+                            android:textStyle="bold"
+                            tools:text="price" />
+
+                        <TextView
+                            android:id="@+id/tv_oldPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_4dp"
+                            android:ellipsize="end"
+                            android:textColor="@color/item_details_grey"
+                            android:textSize="@dimen/detail_old_price_text_size"
+                            tools:text="old price" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/id_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/price_ll"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@id/price_ll"
+                        android:gravity="bottom"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/padding_2dp">
+
+                        <TextView
+                            android:id="@+id/tv_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:gravity="center_vertical"
+                            android:text="@string/text_id"
+                            android:textColor="@color/item_details_grey"
+                            android:textSize="@dimen/item_details_text_10" />
+
+                        <TextView
+                            android:id="@+id/tv_idValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_4dp"
+                            android:ellipsize="end"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/item_details_grey"
+                            android:textSize="@dimen/item_details_text_10"
+                            tools:text="id Value" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/separator_height"
+                    android:layout_marginBottom="@dimen/layout_margin"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:background="@color/separator_color" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/layout_margin"
+                        android:text="@string/select_a_size"
+                        android:textAllCaps="true"
+                        android:textColor="@color/item_details_grey"
+                        android:textSize="@dimen/item_details_text_10"
+                        android:textStyle="bold" />
+
+                    <com.app.presentation.view.custom.FlowRadioGroup
+                        android:id="@+id/rg_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/layout_margin"
+                        android:orientation="horizontal"
+
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/separator_height"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:background="@color/separator_color" />
+
+                <LinearLayout
+                    android:id="@+id/quantity_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <include layout="@layout/quantity_view" />
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/item_details_green"
+                    android:text="@string/add_to_bag"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/button_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/separator_height"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:background="@color/separator_color"
-            />
+    </ScrollView>
 
-        <LinearLayout
-            android:id="@+id/quantity_ll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-          <include
-              layout="@layout/quantity_view"
-              />
-        </LinearLayout>
+    <include layout="@layout/view_progress" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/item_details_green"
-            android:text="@string/add_to_bag"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            />
-
-      </LinearLayout>
-
-    </LinearLayout>
-
-  </ScrollView>
-
-  <include
-      layout="@layout/view_progress"
-      />
-
-  <include
-      layout="@layout/view_retry"
-      />
+    <include layout="@layout/view_retry" />
 
 </LinearLayout>
