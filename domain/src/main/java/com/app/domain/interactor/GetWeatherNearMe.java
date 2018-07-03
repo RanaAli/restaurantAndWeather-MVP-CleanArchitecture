@@ -2,7 +2,7 @@ package com.app.domain.interactor;
 
 import com.app.domain.executor.PostExecutionThread;
 import com.app.domain.executor.ThreadExecutor;
-import com.app.domain.model.weather.WeatherDataModel;
+import com.app.domain.model.weather.WeatherDTO;
 import com.app.domain.repository.WeatherRepository;
 
 import javax.inject.Inject;
@@ -13,7 +13,7 @@ import io.reactivex.Observable;
  * This class is an implementation of {@link UseCase} that represents a use case for
  * retrieving data related to nearby restaurants.
  */
-public class GetWeatherNearMe extends UseCase<WeatherDataModel, GetWeatherNearMe.Params> {
+public class GetWeatherNearMe extends UseCase<WeatherDTO, GetWeatherNearMe.Params> {
 
     private final WeatherRepository weatherRepository;
 
@@ -26,7 +26,7 @@ public class GetWeatherNearMe extends UseCase<WeatherDataModel, GetWeatherNearMe
     }
 
     @Override
-    Observable<WeatherDataModel> buildUseCaseObservable(Params params) {
+    Observable<WeatherDTO> buildUseCaseObservable(Params params) {
         return weatherRepository.weatherNearMe();
     }
 

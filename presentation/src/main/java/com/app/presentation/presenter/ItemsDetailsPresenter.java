@@ -6,9 +6,8 @@ import android.widget.RadioGroup;
 import com.app.domain.exception.DefaultErrorBundle;
 import com.app.domain.exception.ErrorBundle;
 import com.app.domain.interactor.DefaultObserver;
-import com.app.domain.interactor.GetItemDetails;
 import com.app.domain.interactor.GetWeatherNearMe;
-import com.app.domain.model.weather.WeatherDataModel;
+import com.app.domain.model.weather.WeatherDTO;
 import com.app.presentation.exception.ErrorMessageFactory;
 import com.app.presentation.internal.di.PerActivity;
 import com.app.presentation.mapper.WeatherDataModelMapper;
@@ -98,8 +97,9 @@ public class ItemsDetailsPresenter implements Presenter {
         this.viewDetailsView.showError(errorMessage);
     }
 
-    private void showItemDetailsInView(WeatherDataModel weatherDataModel) {
-        WeatherUIModel weatherUIModel = this.weatherDataModelMapper.map(weatherDataModel);
+    private void showItemDetailsInView(WeatherDTO weatherDTO) {
+        WeatherUIModel weatherUIModel = this.weatherDataModelMapper.map(weatherDTO);
+        this.viewDetailsView.populate(weatherUIModel);
 
 //        List<ConfigurableAttributeModel> configurableAttributes =
 //                itemDetailModel.getConfigurableAttributes();
@@ -155,7 +155,7 @@ public class ItemsDetailsPresenter implements Presenter {
         }
     }
 
-    private final class itemDetailsObserver extends DefaultObserver<WeatherDataModel> {
+    private final class itemDetailsObserver extends DefaultObserver<WeatherDTO> {
 
         @Override
         public void onComplete() {
@@ -170,8 +170,8 @@ public class ItemsDetailsPresenter implements Presenter {
         }
 
         @Override
-        public void onNext(WeatherDataModel weatherDataModel) {
-            ItemsDetailsPresenter.this.showItemDetailsInView(weatherDataModel);
+        public void onNext(WeatherDTO weatherDTO) {
+            ItemsDetailsPresenter.this.showItemDetailsInView(weatherDTO);
         }
     }
 }

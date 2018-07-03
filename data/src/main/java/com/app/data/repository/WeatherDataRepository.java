@@ -3,7 +3,7 @@ package com.app.data.repository;
 import com.app.data.entity.mapper.WeatherEntityDataMapper;
 import com.app.data.repository.datasource.weather.WeatherDataStore;
 import com.app.data.repository.datasource.weather.WeatherDataStoreFactory;
-import com.app.domain.model.weather.WeatherDataModel;
+import com.app.domain.model.weather.WeatherDTO;
 import com.app.domain.repository.WeatherRepository;
 
 import javax.inject.Inject;
@@ -30,7 +30,7 @@ public class WeatherDataRepository implements WeatherRepository {
     }
 
     @Override
-    public Observable<WeatherDataModel> weatherNearMe() {
+    public Observable<WeatherDTO> weatherNearMe() {
         WeatherDataStore cloudDataStore = weatherDataStoreFactory.createCloudDataStore();
         return cloudDataStore.getWeather().map(weatherEntityDataMapper::map);
     }

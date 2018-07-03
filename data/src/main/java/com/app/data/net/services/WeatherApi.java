@@ -11,9 +11,10 @@ public interface WeatherApi {
 
     String WEATHER_SEARCH = "5day/";
 
-    @GET(WEATHER_SEARCH+"{key}")
+    @GET(WEATHER_SEARCH + "{key}")
     Observable<WeatherEntity> getWeather(@Path("key") String key,
                                          @Query("apikey") String apiKey,
-                                         @Query("metric") boolean metric);
+                                         @Query("metric") boolean metric,
+                                         @Query("details") boolean details);
 
 }

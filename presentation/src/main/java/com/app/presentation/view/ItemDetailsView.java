@@ -1,6 +1,7 @@
 package com.app.presentation.view;
 
 import android.widget.RadioGroup;
+import com.app.presentation.model.weather.WeatherUIModel;
 import com.app.presentation.view.custom.QuantityView;
 import com.app.presentation.model.ItemDetailModel;
 import com.app.presentation.model.OptionModel;
@@ -24,4 +25,6 @@ public interface ItemDetailsView extends LoadDataView {
   void setQuantityChangeListener(QuantityView.QuantityListener quantityChangeListener);
 
   void setMaxQuantity(int max);
+
+  void populate(WeatherUIModel weatherUIModel);
 }

@@ -1,6 +1,6 @@
 package com.app.domain.repository;
 
-import com.app.domain.model.weather.WeatherDataModel;
+import com.app.domain.model.weather.WeatherDTO;
 
 import io.reactivex.Observable;
 
@@ -13,5 +13,5 @@ public interface WeatherRepository {
     /**
      * Get an {@link Observable} which will emit weather data in nearby locations.
      */
-    Observable<WeatherDataModel> weatherNearMe();
+    Observable<WeatherDTO> weatherNearMe();
 }

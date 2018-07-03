@@ -13,9 +13,30 @@ public class DailyForecast {
     @SerializedName("EpochDate")
     @Expose
     private Integer epochDate;
+    @SerializedName("Sun")
+    @Expose
+    private Sun sun;
+    @SerializedName("Moon")
+    @Expose
+    private Moon moon;
     @SerializedName("Temperature")
     @Expose
     private Temperature temperature;
+    @SerializedName("RealFeelTemperature")
+    @Expose
+    private RealFeelTemperature realFeelTemperature;
+    @SerializedName("RealFeelTemperatureShade")
+    @Expose
+    private RealFeelTemperatureShade realFeelTemperatureShade;
+    @SerializedName("HoursOfSun")
+    @Expose
+    private Double hoursOfSun;
+    @SerializedName("DegreeDaySummary")
+    @Expose
+    private DegreeDaySummary degreeDaySummary;
+    @SerializedName("AirAndPollen")
+    @Expose
+    private List<AirAndPollen> airAndPollen = null;
     @SerializedName("Day")
     @Expose
     private Day day;
@@ -48,12 +69,68 @@ public class DailyForecast {
         this.epochDate = epochDate;
     }
 
+    public Sun getSun() {
+        return sun;
+    }
+
+    public void setSun(Sun sun) {
+        this.sun = sun;
+    }
+
+    public Moon getMoon() {
+        return moon;
+    }
+
+    public void setMoon(Moon moon) {
+        this.moon = moon;
+    }
+
     public Temperature getTemperature() {
         return temperature;
     }
 
     public void setTemperature(Temperature temperature) {
         this.temperature = temperature;
+    }
+
+    public RealFeelTemperature getRealFeelTemperature() {
+        return realFeelTemperature;
+    }
+
+    public void setRealFeelTemperature(RealFeelTemperature realFeelTemperature) {
+        this.realFeelTemperature = realFeelTemperature;
+    }
+
+    public RealFeelTemperatureShade getRealFeelTemperatureShade() {
+        return realFeelTemperatureShade;
+    }
+
+    public void setRealFeelTemperatureShade(RealFeelTemperatureShade realFeelTemperatureShade) {
+        this.realFeelTemperatureShade = realFeelTemperatureShade;
+    }
+
+    public Double getHoursOfSun() {
+        return hoursOfSun;
+    }
+
+    public void setHoursOfSun(Double hoursOfSun) {
+        this.hoursOfSun = hoursOfSun;
+    }
+
+    public DegreeDaySummary getDegreeDaySummary() {
+        return degreeDaySummary;
+    }
+
+    public void setDegreeDaySummary(DegreeDaySummary degreeDaySummary) {
+        this.degreeDaySummary = degreeDaySummary;
+    }
+
+    public List<AirAndPollen> getAirAndPollen() {
+        return airAndPollen;
+    }
+
+    public void setAirAndPollen(List<AirAndPollen> airAndPollen) {
+        this.airAndPollen = airAndPollen;
     }
 
     public Day getDay() {
