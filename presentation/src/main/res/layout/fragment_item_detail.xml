@@ -62,17 +62,17 @@
                     android:id="@+id/weatherTodayTemp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="70dp"
                     android:includeFontPadding="false"
+                    android:textSize="70dp"
                     tools:text="37" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/weatherTodayTemp"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:layout_toEndOf="@id/weatherTodayTemp"
                     android:textSize="14dp"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
                     tools:text="℃" />
 
             </RelativeLayout>
@@ -92,6 +92,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/weatherPrecipitationValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
@@ -100,8 +101,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14dp"
-                    tools:text="Precipitation" />
+                    android:text="Precipitation"
+                    android:textSize="14dp" />
 
             </LinearLayout>
 
@@ -116,13 +117,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
-                    tools:text="10%" />
+                    android:text="NOT AVAILBALE" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
-                    tools:text="Humidity" />
+                    android:text="Humidity" />
 
             </LinearLayout>
 
@@ -134,16 +135,18 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/weatherWindSpeedValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
-                    tools:text="29" />
+                    tools:text="32km" />
 
                 <TextView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14dp"
-                    tools:text="32c" />
+                    android:text="wind"
+                    android:textSize="14dp" />
 
             </LinearLayout>
         </LinearLayout>

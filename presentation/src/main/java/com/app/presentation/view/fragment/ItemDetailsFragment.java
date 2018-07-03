@@ -58,6 +58,12 @@ public class ItemDetailsFragment extends BaseFragment implements ItemDetailsView
     @BindView(R.id.weatherTodayTemp)
     TextView todayTemp;
 
+    @BindView(R.id.weatherWindSpeedValue)
+    TextView windSpeed;
+
+    @BindView(R.id.weatherPrecipitationValue)
+    TextView precipitationValue;
+
     ArrayList<WeatherDailyForecastView> dailyForecastViews;
 
     private QuantityView quantityView;
@@ -166,9 +172,14 @@ public class ItemDetailsFragment extends BaseFragment implements ItemDetailsView
                     dailyForecastUIModels = weatherUIModel.getDailyForecastUIModels();
 
             for (int count = 0; count < dailyForecastUIModels.size(); count++) {
+
                 if(count == 1){
-                    todayTemp.setText(dailyForecastUIModels.get(count).getMax() + "");
+                    DailyForecastUIModel dailyForecastUIModel = dailyForecastUIModels.get(count);
+                    todayTemp.setText(String.format("%s", dailyForecastUIModel.getMax()));
+                    windSpeed.setText(dailyForecastUIModel.getWindSpeed());
+                    precipitationValue.setText(dailyForecastUIModel.getHoursOfPrecipitation());
                 }
+
                 dailyForecastViews.get(count).setData(dailyForecastUIModels.get(count));
             }
 

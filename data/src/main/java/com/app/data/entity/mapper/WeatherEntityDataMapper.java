@@ -29,6 +29,8 @@ public class WeatherEntityDataMapper {
             dailyForecastDTO.setMin(dailyForecast.getTemperature().getMinimum().getValue());
             dailyForecastDTO.setMax(dailyForecast.getTemperature().getMaximum().getValue());
             dailyForecastDTO.setDate(dailyForecast.getDate());
+            dailyForecastDTO.setWindSpeed(dailyForecast.getDay().getWind().getSpeed().getValue() + "");
+            dailyForecastDTO.setHoursOfPrecipitation(dailyForecast.getDay().getHoursOfPrecipitation() + "");
 
             dailyForecastDTOS.add(dailyForecastDTO);
         }
