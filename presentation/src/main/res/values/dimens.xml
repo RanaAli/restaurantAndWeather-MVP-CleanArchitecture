@@ -25,4 +25,13 @@
   <dimen name="quantity_button_width">30dp</dimen>
   <dimen name="padding_4dp">4dp</dimen>
   <dimen name="quantity_plus_text_size">23sp</dimen>
+    <dimen name="city">48sp</dimen>
+  <dimen name="day">20sp</dimen>
+  <dimen name="weather_like">14sp</dimen>
+  <dimen name="temperature">70sp</dimen>
+  <dimen name="degree_text_size">14sp</dimen>
+  <dimen name="precipitation_text_size">14sp</dimen>
+  <dimen name="humidity_text_size">14sp</dimen>
+  <dimen name="wind_text_size">14sp</dimen>
+  <dimen name="daily_forecast_text_size">14sp</dimen>
 </resources>

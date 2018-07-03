@@ -23,21 +23,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dubai"
-                android:textSize="48dp" />
+                android:text="@string/dubai"
+                android:textSize="@dimen/city" />
 
             <TextView
                 android:id="@+id/weatherDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="@dimen/day"
                 tools:text="Sunday" />
 
             <TextView
                 android:id="@+id/weatherText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14dp"
+                android:textSize="@dimen/weather_like"
                 tools:text="Sunny and a bit cloudy" />
 
         </LinearLayout>
@@ -66,8 +66,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
-                    android:textSize="70dp"
-                    tools:text="37" />
+                    android:textSize="@dimen/temperature"
+                    tools:text="@string/temperature_size" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -76,8 +76,8 @@
                     android:layout_marginStart="@dimen/header_margin"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:layout_toEndOf="@id/weatherTodayTemp"
-                    android:text="℃"
-                    android:textSize="14dp" />
+                    android:text="@string/degree"
+                    android:textSize="@dimen/degree_text_size" />
 
             </RelativeLayout>
 
@@ -107,8 +107,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Precipitation"
-                    android:textSize="14dp" />
+                    android:text="@string/precipitation"
+                    android:textSize="@dimen/precipitation_text_size" />
 
             </LinearLayout>
 
@@ -122,14 +122,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NOT AVAILBALE"
-                    android:textSize="14dp" />
+                    android:text="@string/not_availbale"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Humidity"
-                    android:textSize="14dp" />
+                    android:text="@string/humidity"
+                    android:textSize="@dimen/humidity_text_size" />
 
             </LinearLayout>
 
@@ -144,15 +144,15 @@
                     android:id="@+id/weatherWindSpeedValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     tools:text="32km" />
 
                 <TextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="wind"
-                    android:textSize="14dp" />
+                    android:text="@string/wind"
+                    android:textSize="@dimen/wind_text_size" />
 
             </LinearLayout>
         </LinearLayout>
