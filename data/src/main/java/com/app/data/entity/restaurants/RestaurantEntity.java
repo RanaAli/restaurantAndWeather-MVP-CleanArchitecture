@@ -18,7 +18,7 @@ public class RestaurantEntity {
     private String resultsShown;
     @SerializedName("restaurants")
     @Expose
-    private List<Restaurant> restaurants = null;
+    private List<DummyRestaurant> restaurants = null;
 
     public String getResultsFound() {
         return resultsFound;
@@ -44,11 +44,11 @@ public class RestaurantEntity {
         this.resultsShown = resultsShown;
     }
 
-    public List<Restaurant> getRestaurants() {
+    public List<DummyRestaurant> getRestaurants() {
         return restaurants;
     }
 
-    public void setRestaurants(List<Restaurant> restaurants) {
+    public void setRestaurants(List<DummyRestaurant> restaurants) {
         this.restaurants = restaurants;
     }
 

@@ -2,7 +2,6 @@ package com.app.data.repository.datasource.restaurants;
 
 import com.app.data.entity.restaurants.RestaurantEntity;
 import com.app.data.net.services.RestaurantsApi;
-import com.app.data.repository.datasource.ItemsDataStore;
 
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;

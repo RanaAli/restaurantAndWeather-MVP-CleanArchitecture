@@ -19,15 +19,13 @@ import com.bumptech.glide.request.target.Target;
 public class ImageHelper {
 
   private static final String TAG = "ImageHelper";
-  private static final String IMAGE_URL_BASE =
-      "https://prod4.atgcdn.ae/small_light(p=zoom,of=jpg,q=70)/pub/media/catalog/product";
 
   public static void setImage(Context context, final String url, ImageView imageInto) {
 
     if (imageInto != null) {
       if (context != null && url != null) {
         Log.v(TAG, "Loading image: " + url);
-        Glide.with(context).load(IMAGE_URL_BASE + url).listener(new RequestListener<Drawable>() {
+        Glide.with(context).load(url).listener(new RequestListener<Drawable>() {
           @Override
           public boolean onLoadFailed(@Nullable GlideException e, Object o, Target<Drawable> target,
               boolean b) {

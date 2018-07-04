@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.app.presentation.R;
 import com.app.presentation.internal.di.components.AppComponent;
-import com.app.presentation.model.ItemDetailModel;
+import com.app.presentation.model.restaurants.RestaurantUIModel;
 import com.app.presentation.presenter.ItemsListPresenter;
 import com.app.presentation.view.ItemsListView;
 import com.app.presentation.view.adapter.ItemsAdapter;
@@ -83,7 +83,8 @@ public class ItemsListFragment extends BaseFragment implements ItemsListView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View fragmentView = inflater.inflate(R.layout.fragment_items_list, container, false);
+        final View fragmentView = inflater.inflate(R.layout.fragment_items_list,
+                container, false);
         unbinder = ButterKnife.bind(this, fragmentView);
         setupRecyclerView();
         return fragmentView;
@@ -93,6 +94,7 @@ public class ItemsListFragment extends BaseFragment implements ItemsListView {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.itemsListPresenter.setView(this);
+
         if (savedInstanceState == null) {
             this.loadItemsList();
         }
@@ -162,9 +164,9 @@ public class ItemsListFragment extends BaseFragment implements ItemsListView {
     }
 
     @Override
-    public void renderItemsList(List<ItemDetailModel> itemDetailModels) {
-        if (itemDetailModels != null) {
-            this.itemsAdapter.setSearchResults(itemDetailModels);
+    public void renderItemsList(List<RestaurantUIModel> restaurantUIModels) {
+        if (restaurantUIModels != null) {
+            this.itemsAdapter.setSearchResults(restaurantUIModels);
         }
     }
 
@@ -186,20 +188,10 @@ public class ItemsListFragment extends BaseFragment implements ItemsListView {
         this.rv_items.setOnScrollListener(new EndlessRecyclerViewScrollListener(itemsLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                loadMoreItems(page, totalItemsCount, view);
             }
         });
 
-        this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                itemsListPresenter.refreshItems();
-            }
-        });
-    }
-
-    private void loadMoreItems(int page, int totalItemsCount, RecyclerView view) {
-        itemsListPresenter.loadMoreItems(page);
+        this.swipeRefreshLayout.setOnRefreshListener(() -> itemsListPresenter.refreshItems());
     }
 
     /**
@@ -214,13 +206,9 @@ public class ItemsListFragment extends BaseFragment implements ItemsListView {
         ItemsListFragment.this.loadItemsList();
     }
 
-    private ItemsAdapter.OnItemClickListener onItemClickListener =
-            new ItemsAdapter.OnItemClickListener() {
-                @Override
-                public void onItemClicked() {
-                    if (ItemsListFragment.this.itemsListPresenter != null) {
-                        ItemsListFragment.this.itemsListPresenter.onItemClicked();
-                    }
-                }
-            };
+    private ItemsAdapter.OnItemClickListener onItemClickListener = () -> {
+        if (ItemsListFragment.this.itemsListPresenter != null) {
+            ItemsListFragment.this.itemsListPresenter.onItemClicked();
+        }
+    };
 }

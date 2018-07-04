@@ -6,13 +6,12 @@ import com.app.domain.exception.DefaultErrorBundle;
 import com.app.domain.exception.ErrorBundle;
 import com.app.domain.interactor.DefaultObserver;
 import com.app.domain.interactor.GetRestaurantsNearMe;
-import com.app.domain.model.SearchResult;
-import com.app.domain.model.restaurants.RestaurantsDataModel;
+import com.app.domain.model.restaurants.RestaurantsDTO;
 import com.app.presentation.exception.ErrorMessageFactory;
 import com.app.presentation.internal.di.PerActivity;
-import com.app.presentation.mapper.ItemsModelDataMapper;
-import com.app.presentation.model.ItemDetailModel;
-import com.app.presentation.model.SearchResultModel;
+import com.app.presentation.mapper.RestaurantsDataModelMapper;
+import com.app.presentation.model.restaurants.RestaurantUIModel;
+import com.app.presentation.model.restaurants.RestaurantsUIModel;
 import com.app.presentation.view.ItemsListView;
 
 import java.util.ArrayList;
@@ -29,14 +28,14 @@ public class ItemsListPresenter implements Presenter {
 
     private ItemsListView viewListView;
 
-    //  private final SearchItem searchItem;
     private final GetRestaurantsNearMe restaurantsNearMe;
-    private final ItemsModelDataMapper itemsModelDataMapper;
-    private List<ItemDetailModel> itemDetails;
+    private final RestaurantsDataModelMapper itemsModelDataMapper;
+    private List<RestaurantUIModel> itemDetails;
     private Integer page;
 
     @Inject
-    public ItemsListPresenter(GetRestaurantsNearMe restaurantsNearMe, ItemsModelDataMapper itemsModelDataMapper) {
+    public ItemsListPresenter(GetRestaurantsNearMe restaurantsNearMe,
+                              RestaurantsDataModelMapper itemsModelDataMapper) {
 
         this.restaurantsNearMe = restaurantsNearMe;
         this.itemsModelDataMapper = itemsModelDataMapper;
@@ -109,9 +108,9 @@ public class ItemsListPresenter implements Presenter {
         this.viewListView.showError(errorMessage);
     }
 
-    private void showItemsInView(SearchResult searchResult) {
-        final SearchResultModel searchResultModel = this.itemsModelDataMapper.transform(searchResult);
-        itemDetails.addAll(searchResultModel.getItemDetails());
+    private void showItemsInView(RestaurantsDTO searchResult) {
+        RestaurantsUIModel restaurantsUIModel = this.itemsModelDataMapper.transform(searchResult);
+        itemDetails.addAll(restaurantsUIModel.getDataModels());
         this.viewListView.renderItemsList(itemDetails);
     }
 
@@ -126,10 +125,10 @@ public class ItemsListPresenter implements Presenter {
         this.getItemsList();
     }
 
-    private final class ItemsListObserver extends DefaultObserver<RestaurantsDataModel> {
+    private final class ItemsListObserver extends DefaultObserver<RestaurantsDTO> {
         @Override
-        public void onNext(RestaurantsDataModel restaurantsDataModel) {
-//      ItemsListPresenter.this.showItemsInView(searchResult);
+        public void onNext(RestaurantsDTO restaurantsDTO) {
+            ItemsListPresenter.this.showItemsInView(restaurantsDTO);
         }
 
         @Override

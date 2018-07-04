@@ -3,7 +3,7 @@ package com.app.data.repository;
 import com.app.data.entity.mapper.RestaurantEntityDataMapper;
 import com.app.data.repository.datasource.restaurants.RestaurantDataStore;
 import com.app.data.repository.datasource.restaurants.RestaurantsDataStoreFactory;
-import com.app.domain.model.restaurants.RestaurantsDataModel;
+import com.app.domain.model.restaurants.RestaurantsDTO;
 import com.app.domain.repository.RestaurantsRepository;
 
 import javax.inject.Inject;
@@ -33,7 +33,7 @@ import io.reactivex.Observable;
     }
 
     @Override
-    public Observable<RestaurantsDataModel> restaurantsNearMe(String lat, String lon) {
+    public Observable<RestaurantsDTO> restaurantsNearMe(String lat, String lon) {
         final RestaurantDataStore dataStore = restaurantsDataStoreFactory.createCloudDataStore();
         return dataStore.restaurantsNearMe(lat, lon).map(resturantEntityDataMapper::map);
     }

@@ -3,202 +3,192 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/layout_margin"
     android:orientation="vertical"
-    tools:ignore="RtlHardcoded"
-    >
+    tools:ignore="RtlHardcoded">
 
-  <ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:fillViewport="true"
-      >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="#fcdab0"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/headingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dubai"
+                android:textSize="@dimen/city" />
+
+            <TextView
+                android:id="@+id/weatherDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/day"
+                tools:text="Sunday" />
+
+            <TextView
+                android:id="@+id/weatherText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/weather_like"
+                tools:text="Sunny and a bit cloudy" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/headingLayout"
+            android:orientation="horizontal"
+            android:padding="@dimen/activity_vertical_margin">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:src="@drawable/sun" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/weatherTodayTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/temperature"
+                    tools:text="@string/temperature_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/weatherTodayTemp"
+                    android:layout_marginStart="@dimen/header_margin"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_toEndOf="@id/weatherTodayTemp"
+                    android:text="@string/degree"
+                    android:textSize="@dimen/degree_text_size" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/weatherPrecipitationValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    tools:text="10%" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/precipitation"
+                    android:textSize="@dimen/precipitation_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/not_availbale"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/humidity"
+                    android:textSize="@dimen/humidity_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/weatherWindSpeedValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    tools:text="32km" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wind"
+                    android:textSize="@dimen/wind_text_size" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="32"
-        >
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-      <android.support.v4.view.ViewPager
-          android:id="@+id/imageViewPager"
-          android:layout_width="match_parent"
-          android:layout_height="0dp"
-          android:layout_marginBottom="@dimen/layout_margin"
-          android:layout_weight="17"
-          />
+        <include
+            android:id="@+id/weatherDailtyForecastView1"
+            layout="@layout/daily_forecast_view" />
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="0dp"
-          android:layout_weight="15"
-          android:background="@android:color/white"
-          android:orientation="vertical"
-          android:padding="@dimen/row_padding"
-          >
+        <include
+            android:id="@+id/weatherDailtyForecastView2"
+            layout="@layout/daily_forecast_view" />
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_4dp"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/detail_title_test_size"
-            android:textStyle="bold"
-            tools:text="title"
-            />
+        <include
+            android:id="@+id/weatherDailtyForecastView3"
+            layout="@layout/daily_forecast_view" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+        <include
+            android:id="@+id/weatherDailtyForecastView4"
+            layout="@layout/daily_forecast_view" />
 
-          <LinearLayout
-              android:id="@+id/price_ll"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              >
+        <include
+            android:id="@+id/weatherDailtyForecastView5"
+            layout="@layout/daily_forecast_view" />
 
-            <TextView
-                android:id="@+id/tv_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/detail_price_text_color"
-                android:textSize="@dimen/detail_price_text_size"
-                android:textStyle="bold"
-                tools:text="price"
-                />
-
-            <TextView
-                android:id="@+id/tv_oldPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_4dp"
-                android:ellipsize="end"
-                android:textColor="@color/item_details_grey"
-                android:textSize="@dimen/detail_old_price_text_size"
-                tools:text="old price"
-                />
-
-          </LinearLayout>
-
-          <LinearLayout
-              android:id="@+id/id_ll"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_alignBottom="@id/price_ll"
-              android:layout_alignParentRight="true"
-              android:layout_alignTop="@id/price_ll"
-              android:gravity="bottom"
-              android:orientation="horizontal"
-              android:paddingBottom="@dimen/padding_2dp"
-              >
-
-            <TextView
-                android:id="@+id/tv_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:text="@string/text_id"
-                android:textColor="@color/item_details_grey"
-                android:textSize="@dimen/item_details_text_10"
-                />
-
-            <TextView
-                android:id="@+id/tv_idValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_4dp"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:textColor="@color/item_details_grey"
-                android:textSize="@dimen/item_details_text_10"
-                tools:text="id Value"
-                />
-
-          </LinearLayout>
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/separator_height"
-            android:layout_marginBottom="@dimen/layout_margin"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:background="@color/separator_color"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-
-          <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginBottom="@dimen/layout_margin"
-              android:text="@string/select_a_size"
-              android:textAllCaps="true"
-              android:textColor="@color/item_details_grey"
-              android:textSize="@dimen/item_details_text_10"
-              android:textStyle="bold"
-              />
-
-          <com.app.presentation.view.custom.FlowRadioGroup
-              android:id="@+id/rg_layout"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginBottom="@dimen/layout_margin"
-              android:orientation="horizontal"
-
-              />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/separator_height"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:background="@color/separator_color"
-            />
-
-        <LinearLayout
-            android:id="@+id/quantity_ll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-          <include
-              layout="@layout/quantity_view"
-              />
-        </LinearLayout>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/item_details_green"
-            android:text="@string/add_to_bag"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            />
-
-      </LinearLayout>
 
     </LinearLayout>
 
-  </ScrollView>
+    <include layout="@layout/view_progress" />
 
-  <include
-      layout="@layout/view_progress"
-      />
-
-  <include
-      layout="@layout/view_retry"
-      />
+    <include layout="@layout/view_retry" />
 
 </LinearLayout>

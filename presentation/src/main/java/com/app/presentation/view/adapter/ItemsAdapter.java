@@ -7,11 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.app.presentation.R;
 import com.app.presentation.component.ImageHelper;
-import com.app.presentation.model.ItemDetailModel;
+import com.app.presentation.model.restaurants.RestaurantUIModel;
 
 import java.util.Collections;
 import java.util.List;
@@ -22,7 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Adaptar that manages item collection of {@link ItemDetailModel }.
+ * Adaptar that manages item collection of {@link RestaurantUIModel }.
  */
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
 
@@ -30,7 +31,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         void onItemClicked();
     }
 
-    private List<ItemDetailModel> itemDetailModels;
+    private List<RestaurantUIModel> itemDetailModels;
     private final LayoutInflater layoutInflater;
 
     private OnItemClickListener onItemClickListener;
@@ -55,18 +56,19 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, final int position) {
-        final ItemDetailModel model = this.itemDetailModels.get(position);
-        holder.tvTitle.setText(model.getTitle());
-        holder.tvDes.setText(Html.fromHtml(model.getDescription()));
-        holder.tvPrice.setText(model.getPrice().toString());
+        final RestaurantUIModel model = this.itemDetailModels.get(position);
+        holder.tvTitle.setText(model.getName());
+        holder.tvLocation.setText(Html.fromHtml(model.getLocation()));
+        holder.tvCuisine.setText(model.getCuisine());
+        holder.tvRating.setText(model.getRating());
+        holder.tvReviewNumber.setText(model.getRating());
+        holder.ratingBar.setRating(Float.parseFloat(model.getRating()));
+        holder.tvReviewNumber.setText(model.getNumberOfReviews());
         ImageHelper.setImage(holder.view.getContext(), model.getImageUrl(), holder.ivImage);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ItemsAdapter.this.onItemClickListener != null) {
-                    ItemsAdapter.this.onItemClickListener.onItemClicked();
-                }
+        holder.itemView.setOnClickListener(v -> {
+            if (ItemsAdapter.this.onItemClickListener != null) {
+                ItemsAdapter.this.onItemClickListener.onItemClicked();
             }
         });
     }
@@ -76,9 +78,9 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         return position;
     }
 
-    public void setSearchResults(List<ItemDetailModel> itemDetailModels) {
-        this.validateCollection(itemDetailModels);
-        this.itemDetailModels = itemDetailModels;
+    public void setSearchResults(List<RestaurantUIModel> restaurantUIModels) {
+        this.validateCollection(restaurantUIModels);
+        this.itemDetailModels = restaurantUIModels;
         this.notifyDataSetChanged();
     }
 
@@ -86,8 +88,8 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         this.onItemClickListener = onItemClickListener;
     }
 
-    private void validateCollection(List<ItemDetailModel> itemDetailModels) {
-        if (itemDetailModels == null) {
+    private void validateCollection(List<RestaurantUIModel> restaurantUIModels) {
+        if (restaurantUIModels == null) {
             throw new IllegalArgumentException("The list cannot be null");
         }
     }
@@ -99,8 +101,18 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         TextView tvTitle;
         @BindView(R.id.des)
         TextView tvDes;
-        @BindView(R.id.price)
-        TextView tvPrice;
+        @BindView(R.id.location)
+        TextView tvLocation;
+        @BindView(R.id.cuisine)
+        TextView tvCuisine;
+        @BindView(R.id.rating)
+        TextView tvRating;
+        @BindView(R.id.reviewNumber)
+        TextView tvReviewNumber;
+        @BindView(R.id.review)
+        TextView tvReview;
+        @BindView(R.id.ratingBar)
+        RatingBar ratingBar;
         @BindView(R.id.image)
         ImageView ivImage;
 

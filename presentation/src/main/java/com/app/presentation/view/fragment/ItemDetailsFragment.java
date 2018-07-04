@@ -1,26 +1,20 @@
 package com.app.presentation.view.fragment;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.app.presentation.R;
 import com.app.presentation.internal.di.components.AppComponent;
-import com.app.presentation.model.ItemDetailModel;
-import com.app.presentation.model.OptionModel;
+import com.app.presentation.model.weather.DailyForecastUIModel;
+import com.app.presentation.model.weather.WeatherDailyForecastView;
+import com.app.presentation.model.weather.WeatherUIModel;
 import com.app.presentation.presenter.ItemsDetailsPresenter;
 import com.app.presentation.view.ItemDetailsView;
-import com.app.presentation.view.adapter.ImageViewPagerAdapter;
-import com.app.presentation.view.custom.QuantityView;
-import com.app.presentation.view.custom.SizeButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,35 +31,32 @@ import butterknife.Unbinder;
  */
 public class ItemDetailsFragment extends BaseFragment implements ItemDetailsView {
 
-    private static final int FIRST_CHILD = 0;
-
     @Inject
     ItemsDetailsPresenter itemsDetailsPresenter;
 
     @BindView(R.id.rl_progress)
     RelativeLayout rl_progress;
+
     @BindView(R.id.rl_retry)
     RelativeLayout rl_retry;
 
-    @BindView(R.id.tv_title)
-    TextView tv_title;
-    @BindView(R.id.tv_price)
-    TextView tv_price;
-    @BindView(R.id.tv_oldPrice)
-    TextView tv_oldPrice;
-    @BindView(R.id.tv_idValue)
-    TextView tv_idValue;
-    @BindView(R.id.tv_id)
-    TextView tv_id;
-    @BindView(R.id.rg_layout)
-    RadioGroup radioGroup;
-    @BindView(R.id.imageViewPager)
-    ViewPager viewPager;
-    @BindView(R.id.quantity_ll)
-    LinearLayout quantityLl;
+    @BindView(R.id.weatherText)
+    TextView weatherText;
 
-    private QuantityView quantityView;
-    private ArrayList<SizeButton> sizeButtonList;
+    @BindView(R.id.weatherDay)
+    TextView weatherDay;
+
+    @BindView(R.id.weatherTodayTemp)
+    TextView todayTemp;
+
+    @BindView(R.id.weatherWindSpeedValue)
+    TextView windSpeed;
+
+    @BindView(R.id.weatherPrecipitationValue)
+    TextView precipitationValue;
+
+    ArrayList<WeatherDailyForecastView> dailyForecastViews;
+
     private Unbinder unbinder;
 
     public static ItemDetailsFragment forItem() {
@@ -75,7 +66,6 @@ public class ItemDetailsFragment extends BaseFragment implements ItemDetailsView
 
     public ItemDetailsFragment() {
         setRetainInstance(true);
-        sizeButtonList = new ArrayList<>();
     }
 
     @Override
@@ -87,12 +77,9 @@ public class ItemDetailsFragment extends BaseFragment implements ItemDetailsView
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View fragmentView = inflater.inflate(R.layout.fragment_item_detail, container, false);
+        final View fragmentView = inflater
+                .inflate(R.layout.fragment_item_detail, container, false);
         unbinder = ButterKnife.bind(this, fragmentView);
-
-        quantityView = new QuantityView(quantityLl);
-        viewPager.setPageMargin(-40);
-
         return fragmentView;
     }
 
@@ -100,6 +87,20 @@ public class ItemDetailsFragment extends BaseFragment implements ItemDetailsView
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.itemsDetailsPresenter.setView(this);
+
+        dailyForecastViews = new ArrayList<>();
+
+        dailyForecastViews.add(
+                new WeatherDailyForecastView(view.findViewById(R.id.weatherDailtyForecastView1)));
+        dailyForecastViews.add(
+                new WeatherDailyForecastView(view.findViewById(R.id.weatherDailtyForecastView2)));
+        dailyForecastViews.add(
+                new WeatherDailyForecastView(view.findViewById(R.id.weatherDailtyForecastView3)));
+        dailyForecastViews.add(
+                new WeatherDailyForecastView(view.findViewById(R.id.weatherDailtyForecastView4)));
+        dailyForecastViews.add(
+                new WeatherDailyForecastView(view.findViewById(R.id.weatherDailtyForecastView5)));
+
         if (savedInstanceState == null) {
             this.loadItemDetails();
         }
@@ -129,71 +130,28 @@ public class ItemDetailsFragment extends BaseFragment implements ItemDetailsView
         this.itemsDetailsPresenter.destroy();
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
-    public void renderItemDetails(ItemDetailModel itemDetailModel, List<OptionModel> options,
-                                  RadioGroup.OnCheckedChangeListener onCheckedChangeListener) {
-        if (itemDetailModel != null) {
-            tv_title.setText(itemDetailModel.getTitle());
-            tv_price.setText(itemDetailModel.getMinPrice().toString());
-            tv_oldPrice.setText(itemDetailModel.getPrice().toString());
+    public void populate(WeatherUIModel weatherUIModel) {
+        if (weatherUIModel != null) {
+            weatherText.setText(weatherUIModel.getHeadLine());
+            weatherDay.setText(weatherUIModel.getDay());
 
-            setImages(itemDetailModel);
+            List<DailyForecastUIModel>
+                    dailyForecastUIModels = weatherUIModel.getDailyForecastUIModels();
 
-            radioGroup.setOnCheckedChangeListener(onCheckedChangeListener);
-            addSizeOptions(options);
+            for (int count = 0; count < dailyForecastUIModels.size(); count++) {
+
+                if (count == 1) {
+                    DailyForecastUIModel dailyForecastUIModel = dailyForecastUIModels.get(count);
+                    todayTemp.setText(String.format("%s", dailyForecastUIModel.getMax()));
+                    windSpeed.setText(dailyForecastUIModel.getWindSpeed());
+                    precipitationValue.setText(dailyForecastUIModel.getHoursOfPrecipitation());
+                }
+
+                dailyForecastViews.get(count).setData(dailyForecastUIModels.get(count));
+            }
+
         }
-    }
-
-    private void setImages(ItemDetailModel itemDetailModel) {
-        List<String> images = itemDetailModel.getImages();
-        if (images != null && !images.isEmpty()) {
-            ImageViewPagerAdapter imageViewPagerAdapter =
-                    new ImageViewPagerAdapter(getActivity().getApplicationContext());
-            imageViewPagerAdapter.setImages(images);
-            viewPager.setAdapter(imageViewPagerAdapter);
-        }
-    }
-
-    @Override
-    public void disableRadioButton(int position) {
-        SizeButton sizeButton = sizeButtonList.get(position);
-        sizeButton.setEnabled(false);
-    }
-
-    @Override
-    public void enableRadioButton(int position) {
-        SizeButton sizeButton = sizeButtonList.get(position);
-        sizeButton.setEnabled(true);
-    }
-
-    @Override
-    public void setProductID(String id) {
-        tv_idValue.setText(id);
-    }
-
-    @Override
-    public void setQuantityChangeListener(QuantityView.QuantityListener quantityChangeListener) {
-        quantityView.setQuantityListener(quantityChangeListener);
-    }
-
-    @Override
-    public void setMaxQuantity(int max) {
-        quantityView.setMax(max);
-    }
-
-    private void addSizeOptions(List<OptionModel> options) {
-        for (int count = 0; count < options.size(); count++) {
-            OptionModel optionModel = options.get(count);
-            SizeButton sizeButton = new SizeButton(getActivity().getApplicationContext());
-            sizeButton.setText(optionModel.getLabel());
-            sizeButton.setEnabled(optionModel.getInStock());
-            sizeButton.setId(count);
-
-            sizeButtonList.add(sizeButton);
-            radioGroup.addView(sizeButton);
-        }
-        radioGroup.check((radioGroup.getChildAt(FIRST_CHILD)).getId());
     }
 
     @Override
