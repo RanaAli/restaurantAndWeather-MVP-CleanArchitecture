@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.app.presentation.R;
 import com.app.presentation.component.ImageHelper;
-import com.app.presentation.model.ItemDetailModel;
 import com.app.presentation.model.restaurants.RestaurantUIModel;
 
 import java.util.Collections;
@@ -24,7 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Adaptar that manages item collection of {@link ItemDetailModel }.
+ * Adaptar that manages item collection of {@link RestaurantUIModel }.
  */
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
 
@@ -79,9 +78,9 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         return position;
     }
 
-    public void setSearchResults(List<RestaurantUIModel> itemDetailModels) {
-        this.validateCollection(itemDetailModels);
-        this.itemDetailModels = itemDetailModels;
+    public void setSearchResults(List<RestaurantUIModel> restaurantUIModels) {
+        this.validateCollection(restaurantUIModels);
+        this.itemDetailModels = restaurantUIModels;
         this.notifyDataSetChanged();
     }
 
@@ -89,8 +88,8 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         this.onItemClickListener = onItemClickListener;
     }
 
-    private void validateCollection(List<RestaurantUIModel> itemDetailModels) {
-        if (itemDetailModels == null) {
+    private void validateCollection(List<RestaurantUIModel> restaurantUIModels) {
+        if (restaurantUIModels == null) {
             throw new IllegalArgumentException("The list cannot be null");
         }
     }

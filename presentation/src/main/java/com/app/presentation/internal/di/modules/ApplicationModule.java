@@ -3,12 +3,10 @@ package com.app.presentation.internal.di.modules;
 import android.content.Context;
 
 import com.app.data.executor.JobExecutor;
-import com.app.data.repository.ItemsDataRepository;
 import com.app.data.repository.RestaurantsDataRepository;
 import com.app.data.repository.WeatherDataRepository;
 import com.app.domain.executor.PostExecutionThread;
 import com.app.domain.executor.ThreadExecutor;
-import com.app.domain.repository.ItemsRepository;
 import com.app.domain.repository.RestaurantsRepository;
 import com.app.domain.repository.WeatherRepository;
 import com.app.presentation.AndroidApplication;
@@ -46,13 +44,6 @@ public class ApplicationModule {
     @Singleton
     PostExecutionThread providePostExecutionThread(UIThread uiThread) {
         return uiThread;
-    }
-
-    @Provides
-    @Singleton
-    ItemsRepository provideItemsRepository(
-            ItemsDataRepository itemsDataRepository) {
-        return itemsDataRepository;
     }
 
     @Provides

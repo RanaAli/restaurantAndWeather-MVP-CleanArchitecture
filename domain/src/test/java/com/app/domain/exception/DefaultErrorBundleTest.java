@@ -1,7 +1,6 @@
 
 package com.app.domain.exception;
 
-import com.app.domain.exception.DefaultErrorBundle;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,19 +11,20 @@ import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultErrorBundleTest {
-  private DefaultErrorBundle defaultErrorBundle;
+    private DefaultErrorBundle defaultErrorBundle;
 
-  @Mock private Exception mockException;
+    @Mock
+    private Exception mockException;
 
-  @Before
-  public void setUp() {
-    defaultErrorBundle = new DefaultErrorBundle(mockException);
-  }
+    @Before
+    public void setUp() {
+        defaultErrorBundle = new DefaultErrorBundle(mockException);
+    }
 
-  @Test
-  public void testGetErrorMessageInteraction() {
-    defaultErrorBundle.getErrorMessage();
+    @Test
+    public void testGetErrorMessageInteraction() {
+        defaultErrorBundle.getErrorMessage();
 
-    verify(mockException).getMessage();
-  }
+        verify(mockException).getMessage();
+    }
 }

@@ -28,7 +28,6 @@ public class ItemsListPresenter implements Presenter {
 
     private ItemsListView viewListView;
 
-    //  private final SearchItem searchItem;
     private final GetRestaurantsNearMe restaurantsNearMe;
     private final RestaurantsDataModelMapper itemsModelDataMapper;
     private List<RestaurantUIModel> itemDetails;

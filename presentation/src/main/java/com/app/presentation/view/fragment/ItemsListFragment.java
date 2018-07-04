@@ -164,9 +164,9 @@ public class ItemsListFragment extends BaseFragment implements ItemsListView {
     }
 
     @Override
-    public void renderItemsList(List<RestaurantUIModel> itemDetailModels) {
-        if (itemDetailModels != null) {
-            this.itemsAdapter.setSearchResults(itemDetailModels);
+    public void renderItemsList(List<RestaurantUIModel> restaurantUIModels) {
+        if (restaurantUIModels != null) {
+            this.itemsAdapter.setSearchResults(restaurantUIModels);
         }
     }
 

@@ -18,11 +18,11 @@ import javax.inject.Inject;
 
 public class WeatherDataModelMapper {
 
-    public static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssz";
-    public static final String DATA_DAY_FULL_NAME = "EEEE";
-    public static final String DATA_DAY_FULL_HALF = "EEE";
-    public static final String KM = " km";
-    public static final String PERCENT = " %";
+    private static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssz";
+    private static final String DATA_DAY_FULL_NAME = "EEEE";
+    private static final String DATA_DAY_FULL_HALF = "EEE";
+    private static final String KM = " km";
+    private static final String PERCENT = " %";
 
     @Inject
     public WeatherDataModelMapper() {
